@@ -1,0 +1,557 @@
+/* general */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body,
+html {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    margin: 0;
+}
+
+header {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    background-color: rgb(0, 105, 62);
+    border-bottom: 4px solid rgb(245, 220, 105);
+    color: white;
+    justify-content: space-between;
+}
+
+header h1 {
+    margin-left: 1rem;
+    color: white;
+}
+
+main {
+    padding: 0;
+    position: relative;
+    margin: 0 auto;
+}
+
+/* nav styles */
+
+.main-nav {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.main-container {
+    display: flex;
+    height: 100%;
+}
+
+ul {
+    display: inline-flex;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+}
+
+nav ul li {
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    height: 100%;
+    color: white;
+}
+
+nav ul li:hover {
+    box-sizing: border-box;
+}
+
+/* input styles */
+input[type=text],
+input[type=number] {
+    padding: 1em;
+    box-sizing: border-box;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    height: 3rem;
+    border-radius: .5em;
+    border: 1px solid lightgray;
+    min-width: calc(var(--min-width) - var(--offset))
+}
+
+.select {
+    appearance: none;
+    padding: 1em;
+    box-sizing: border-box;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    height: 3rem;
+    border-radius: .5em;
+    border: 1px solid lightgray;
+    outline: none;
+    min-width: calc(var(--min-width) - var(--offset))
+}
+
+.select::after {
+    content: "";
+    width: 0.8em;
+    height: 0.5em;
+    background-color: var(--select-arrow);
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+}
+
+
+input[type=text]:focus,
+input[type=number]:focus {
+    outline: 2px solid rgb(0, 105, 62);
+}
+
+/* searchbar button styles */
+
+.searchBar button {
+    padding: .5em;
+    margin: 1em 1em 1em 0;
+    border-radius: .5em;
+    height: 3rem;
+    width: 100%;
+    border: 1px solid lightgray;
+    min-width: calc(var(--min-width) - var(--offset))
+
+}
+
+
+.searchBar button:hover {
+    background-color: rgb(0, 105, 62);
+    color: white;
+}
+
+form {
+    box-sizing: border-box;
+    width: 90%;
+    margin: 0;
+}
+
+/* variables */
+html {
+    --max-width: 500px;
+    --min-width: 500px;
+    --offset: 70px;
+}
+
+.searchBar {
+    display: flex;
+    text-align: left;
+    box-sizing: border-box;
+    flex-direction: column;
+    max-width: var(--max-width);
+    min-width: var(--min-width);
+    background-color: #fdfdfd;
+    align-items: center;
+    padding: 2em;
+    z-index: 30;
+    border-radius: 1em;
+    margin-top: -260px;
+    margin-left: calc(50vw - calc(var(--max-width)/2));
+    box-shadow: -1px 12px 20px 5px rgb(112, 112, 112);
+    -webkit-transition: all .4s linear;
+    -moz-transition: all .4s linear;
+    -o-transition: all .4s linear;
+    transition: all .4s linear;
+}
+
+.searchBar.sideBar {
+    margin-left: 1rem;
+    margin-top: 1rem;
+    max-width: 400px;
+    max-height: 750px;
+}
+
+.bg {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(0, 105, 62);
+    width: 100%;
+    min-height: 320px;
+    z-index: 10;
+    -webkit-transition: all .4s linear;
+    -moz-transition: all .4s linear;
+    -o-transition: all .4s linear;
+    transition: all .4s linear;
+}
+
+.bg.transfm {
+    min-height: 0px;
+}
+
+/* form labels */
+label.cb {
+    font-size: medium;
+}
+
+input[type=checkbox] {
+    accent-color: rgb(0, 105, 62);
+}
+
+form label {
+    font-size: x-large;
+}
+
+/* link styles */
+
+a:link {
+    text-decoration: none;
+    color: inherit
+}
+
+
+a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.container-sidebar {
+    max-height: 40%;
+    padding: 1rem;
+    margin: 1rem;
+    width: 20%;
+    border: 1px solid lightgray;
+    border-radius: 1rem;
+    background-color: rgb(247, 247, 247);
+    min-width: 15rem;
+}
+
+.container-sidebar h3 {
+    margin: 0;
+}
+
+.selectSpecies {
+    padding-top: 1rem;
+    display: grid;
+    grid-template-columns: max-content;
+    grid-gap: 5px;
+}
+
+.results-main {
+    display: inline-flex;
+    flex-direction: row;
+    position: relative;
+    width: 100%;
+
+}
+
+.placeholder {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.placeholder h3 {
+    margin-left: auto;
+}
+
+/* result card styles */
+
+.scroll-container {
+    max-height: 900px;
+    width: 100%;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
+.result-card {
+    box-shadow: -2px 2px 10px -1px rgb(112, 112, 112);
+    margin: 1rem 2rem 2rem 2rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    border-left: 4px solid rgb(0, 105, 62);
+    /* border-top: 1px solid rgb(0, 105, 62); */
+    -webkit-transition: all .4s linear;
+    -moz-transition: all .4s linear;
+    -o-transition: all .4s linear;
+    transition: all .4s linear;
+}
+
+.card-title {
+    display: flex;
+    /* align-content: t; */
+    justify-content: space-between;
+}
+
+.card-footer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    /* background-color: red; */
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-footer button {
+    padding: .5em;
+    margin: 1em 1em 1em 0;
+    border-radius: .5em;
+    height: 3rem;
+    width: 20%;
+    border: 1px solid lightgray;
+}
+
+.card-footer button:hover {
+    background-color: rgb(0, 105, 62);
+    color: white;
+}
+
+blockquote {
+    border-left: 3px solid rgb(247, 247, 247);
+    padding-left: 1.5rem;
+
+}
+
+button:disabled:hover {
+    background-color: rgba(239, 239, 239, 0.3);
+    color: rgba(16, 16, 16, 0.3);
+}
+
+.data-avail {
+    color: green;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+    margin: 1rem;
+    margin-right: 3rem;
+    border-radius: .5rem;
+    z-index: 100;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover,
+.dropdown:hover .dropbtn {
+    background-color: #f9f9f9;
+    color: black;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 2rem;
+    /* left: 2rem; */
+    background-color: #f9f9f9;
+    width: 750px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    margin-right: .5rem;
+    border-radius: .5rem;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content .selStudy:hover {
+    background-color: #ddd;
+    border-radius: .5rem;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.cart-container {
+    display: flex;
+    flex-direction: row;
+    margin: 1rem;
+    margin-right: 3rem;
+    border-radius: .5rem;
+    justify-content: center;
+}
+
+.module {
+    /* display: flex; */
+    /* align-items: left; */
+    /* width: 100%; */
+    flex-basis: 33.33%; 
+    height: 1.5rem;
+    color: black;
+    width: 200px;
+    margin: 1rem;
+    /* text-align: center; */
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    min-width: 0;
+    /* padding: 1rem; */
+}
+.selStudy {
+    /* display: flex; */
+    /* align-items: left; */
+    /* width: 100%; */
+    flex-basis: 33.33%; 
+    height: 1.5rem;
+    color: black;
+    width: 400px;
+    margin: 1rem;
+    /* text-align: center; */
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    min-width: 0;
+    /* padding: 1rem; */
+}
+
+.selStudy.studyTitle {
+    /* flex: 1; */
+    /* Take up remaining space */
+    margin-right: 10px;
+    /* Optional: Add spacing between title and button */
+}
+.remove {
+    flex: 1;
+    color: white;
+    background-color: rgb(0, 105, 62);
+    height: 1.5rem;
+    flex-basis: 12%; 
+    
+}
+
+.remove:hover {
+    background-color: red !important;
+    color: red;
+}
+
+.dropdown-content button {
+    padding: 1em;
+    margin: 1em;
+    border-radius: .5em;
+    height: 3rem;
+    width: 90%;
+    border: 1px solid lightgray;
+    max-width: 300px;
+}
+
+.dropdown-content button:hover {
+    background-color: rgb(0, 105, 62);
+    color: white;
+}
+
+
+.dot {
+    height: 25px;
+    width: 25px;
+    background-color: rgb(245, 220, 105);
+    color: black;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 1rem;
+    /* justify-content: center; */
+    /* vertical-align: middle; */
+    padding-top: 1.5px;
+}
+/* no results CSS */
+.no-res {
+    display: none;
+}
+
+.no-res.transfm {
+    padding-top: 15px;
+    padding-left: 30px;
+    display: inline;
+}
+
+/* loader CSS */
+.loader {
+    border: 20px solid rgb(245, 220, 105);
+    border-top: 20px solid rgb(0, 105, 62);
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    animation: spin 2s linear infinite;
+    z-index: 100;
+    margin: 0 auto;
+    position: absolute;
+    left: 45%;
+    top: 40%;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@media (min-width: 1025px) {
+    .h-custom {
+    height: 100vh !important;
+    }
+    }
+
+/* style items with the class info
+align center vertically
+align right horizontally
+
+*/
+#info {
+    color: white;
+}
+
+.rhscontainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.modal-content {
+    background-color: white;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    margin-top: 50px;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.modal-content button {
+    padding: .5em;
+    margin: 1em 1em 1em 0;
+    border-radius: .5em;
+    height: 3rem;
+    width: 100%;
+    border: 1px solid lightgray;
+}
+
+
+.modal-content button:hover {
+    background-color: rgb(0, 105, 62);
+    color: white;
+}
