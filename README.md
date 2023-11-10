@@ -16,9 +16,6 @@ The RESPIRE system has three pieces
 2. A registry API that tracks the available modules and makes them known to the front-end application
 3. A standard React front end set up to consume data from the registry and module APIs
 
-![System Architecture](images/respire_system_architecture.png)
-
-
 # Deploying a new RESPIRE instance
 
 Module APIs are registered with a deployed registry API, which is in turn connected to a RESPIRE frontend instance. Both the registry API and the front-end are containerized using Docker. These containers can be deployed on AWS or on your institution's infrastrucure.
