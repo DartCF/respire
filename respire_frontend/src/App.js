@@ -13,10 +13,10 @@ import { setField } from './store';
 import { getAndSetSearchResults } from "./store/thunk/getAndSetSearchResults";
 import { useEffect } from "react";
 import InfoIcon from '@mui/icons-material/Info';
-import { Icon, IconButton, Modal } from '@mui/material';
+import { IconButton, Modal } from '@mui/material';
 import { useState } from "react";
 
-function App({ applicationName }) {
+function App({ applicationName, registryAPIPath, documentationURL }) {
   const dispatch = useDispatch();
 
   // store subscriptions
@@ -52,7 +52,7 @@ function App({ applicationName }) {
 
   // initialize modules
   useEffect(() => {
-    dispatch(fetchAndUpdateModules())
+    dispatch(fetchAndUpdateModules(registryAPIPath))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -136,7 +136,7 @@ function App({ applicationName }) {
               <p>Use the inputs to search for studies matching your research interests and needs. These studies can be added to your cart and downloaded as a ZIP file.</p>
 
               <p>If you are interested in creating a new instance of this system specific to your research domain or contributing processed data to the project,
-                please consult the system documentation [LINK]
+                please consult the <a href={documentationURL}> system documentation </a>
               </p>
 
               <button onClick={handleCloseModal}>Close</button>

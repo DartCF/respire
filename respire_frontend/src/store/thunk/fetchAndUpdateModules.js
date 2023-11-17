@@ -1,16 +1,13 @@
 import axios from 'axios'
-import { setModules, setActiveModule, setConfig } from '..'
+import { setModules, setActiveModule } from '..'
 import fetchAndUpdateConfig from './getAndSetActiveConfig'
 import createSearchState from './createSearch'
 import { initSearchResults } from '..'
 
-function getAndSetModules() {
-  return (dispatch, getState) => {
+function getAndSetModules(registryAPIPath) {
+  return (dispatch, getState, registry_api_path = registryAPIPath) => {
     axios.get(
-      // move to config file
-      // process.env.REGISTRY_API_URL
-      // 'https://respire-registry-dev.dartmouth.edu/listModules'
-      'https://respire-registry.dartmouth.edu/listModules'
+      registry_api_path
     ).then((res) => {
       dispatch(setModules(res.data));
       const modules = selectModules(getState())
@@ -19,6 +16,7 @@ function getAndSetModules() {
       dispatch(initSearchResults(makeSearchStruct(getState())))
       dispatch(fetchAndUpdateConfig())
       dispatch(createSearchState())
+
     }).catch((error) => {
       // eslint-disable-next-line
       console.error(error)

@@ -163,6 +163,24 @@ const processingSlice = createSlice({
     }
 })
 
+
+const adminSlice = createSlice({
+    name: 'admin',
+    initialState: {registry_api_path: '', documentation_url: ''},
+    reducers: {
+        setRegistryAPIPath(state, action) {
+            let newState = state
+            newState['registry_api_path'] = action.payload
+            return newState;
+        },
+        setDocumentationURL(state, action) {
+            let newState = state
+            newState['documentation_url'] = action.payload
+            return newState;
+        }
+    }
+})
+
 const store = configureStore({
     reducer: {
         cart: cartSlice.reducer,
@@ -174,7 +192,8 @@ const store = configureStore({
         search: search.reducer,
         transform: transformSlice.reducer,
         processing: processingSlice.reducer,
-        selectedIds: selectedIdsSlice.reducer
+        selectedIds: selectedIdsSlice.reducer,
+        admin: adminSlice.reducer
     }
 });
 
@@ -189,3 +208,4 @@ export const { setTransform } = transformSlice.actions;
 export const { setLoading } = loadingSlice.actions;
 export const { setProcessing, incrementProcessing } = processingSlice.actions;
 export const { addSelectedId, removeId, clearSelectedIds } = selectedIdsSlice.actions;
+export const { setRegistryAPIPath, setDocumentationURL } = adminSlice.actions;;
