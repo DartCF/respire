@@ -1,6 +1,6 @@
 # respire
 
-RESPIRE is the REpoSitory for Pulmonary expressIon data Reuse
+RESPIRE is the REpoSitory for Pulmonary expressIon data Reuse. Detailed documentation available in the [RESPIRE Wiki](https://github.com/DartCF/respire/wiki)
 
 ## Project Goal
 
